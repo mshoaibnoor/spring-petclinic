@@ -4,7 +4,7 @@ pipeline{
         stage('Build'){
             steps{
                 sh 'mvn -B -DskipTests clean package'
-                sh 'java -jar target/*.jar --port=8888'
+                sh 'java -jar target/*.jar -Dserver.port=8888'
             }
         }
     }

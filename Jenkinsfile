@@ -32,7 +32,7 @@ pipeline{
                 
             }
         }
-        stage('Deploy'){
+        stage('Dep'){
             steps{
                 sh 'echo "java -Dserver.port=8082 -jar target/*.jar" | at now + 1 minutes'
             }

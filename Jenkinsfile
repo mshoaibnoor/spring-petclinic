@@ -6,6 +6,26 @@ pipeline{
                 cleanws()
             }
         }
+        // stage('dependency check'){
+        //     steps{
+        //         sh 'wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.3.1/dependency-check-6.3.1-release.zip'
+        //         sh 'unzip dependency-check-6.3.1-release.zip'
+        //         sh 'ls -al'
+        //         echo "================"
+        //         dir('dependency-check/bin/'){
+        //             sh 'ls -al'
+        //             sh 'bash dependency-check.sh --project "test" --format "XML" --scan "../../src/"'
+        //         }
+        //     }
+        // }
+        // stage('dependency check publish'){
+        //     steps{
+        //         dir('dependency-check/bin/'){
+        //             sh 'ls -al'
+        //             dependencyCheckPublisher pattern: ''
+        //         }
+        //     }
+        // }
         stage('Build'){
             steps{
                 sh 'mvn -B -DskipTests clean package'

@@ -1,12 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage('clear ws'){
-            steps{
-                cleanWs()
-            }
-        }
-		stage('dependency check'){
+        stage('dependency check'){
             steps{
                 sh 'wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.3.1/dependency-check-6.3.1-release.zip'
                 sh 'unzip dependency-check-6.3.1-release.zip'

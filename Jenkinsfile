@@ -3,8 +3,8 @@ pipeline{
     stages{
         stage('dependency check'){
             steps{
-                //sh 'wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.3.1/dependency-check-6.3.1-release.zip'
-                //sh 'unzip dependency-check-6.3.1-release.zip'
+                sh 'wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.3.1/dependency-check-6.3.1-release.zip'
+                sh 'unzip dependency-check-6.3.1-release.zip'
                 dir('dependency-check/bin/'){
                     sh 'bash dependency-check.sh --project "test" --format "XML" --scan "../../src/"'
                 }
